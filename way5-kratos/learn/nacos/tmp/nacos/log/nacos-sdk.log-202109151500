@@ -1,0 +1,8 @@
+2021-09-15T15:03:23.175+0800	[34mINFO[0m	[client.ListenConfig] request params:map[Listening-Configs:user.service.config1USER_SERVICE_GROUP14f01791e423c09a0d58b6b7c9ccf6b1a16dd0d7-08ef-4bcb-a64e-d6e10fab2f7e tenant:a16dd0d7-08ef-4bcb-a64e-d6e10fab2f7e] header:map[Content-Type:application/x-www-form-urlencoded;charset=utf-8 Long-Pulling-Timeout:30000 Long-Pulling-Timeout-No-Hangup:true accessKey: secretKey:] 
+
+2021-09-15T15:03:23.201+0800	[34mINFO[0m	[client.ListenConfig] no change
+2021-09-15T15:03:23.212+0800	[34mINFO[0m	[client.ListenConfig] request params:map[Listening-Configs:user.service.config1USER_SERVICE_GROUP14f01791e423c09a0d58b6b7c9ccf6b1a16dd0d7-08ef-4bcb-a64e-d6e10fab2f7emysql.datasourceCOMMON_GROUP8fddc6bc604c7ca66bd585995d4f12a4a16dd0d7-08ef-4bcb-a64e-d6e10fab2f7e tenant:a16dd0d7-08ef-4bcb-a64e-d6e10fab2f7e] header:map[Content-Type:application/x-www-form-urlencoded;charset=utf-8 Long-Pulling-Timeout:30000 Long-Pulling-Timeout-No-Hangup:true accessKey: secretKey:] 
+
+2021-09-15T15:03:23.434+0800	[34mINFO[0m	[client.ListenConfig] no change
+2021-09-15T15:03:23.444+0800	[34mINFO[0m	[client.ListenConfig] request params:map[Listening-Configs:mysql.datasourceCOMMON_GROUP8fddc6bc604c7ca66bd585995d4f12a4a16dd0d7-08ef-4bcb-a64e-d6e10fab2f7euser.service.config1USER_SERVICE_GROUP14f01791e423c09a0d58b6b7c9ccf6b1a16dd0d7-08ef-4bcb-a64e-d6e10fab2f7e tenant:a16dd0d7-08ef-4bcb-a64e-d6e10fab2f7e] header:map[Content-Type:application/x-www-form-urlencoded;charset=utf-8 Long-Pulling-Timeout:30000 accessKey: secretKey:] 
+
