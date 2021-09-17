@@ -10,9 +10,16 @@ import (
 type User struct {
 	gorm.Model
 
-	Name     string
-	Age      int
-	Birthday time.Time
+	Name       string `gorm:"default:guest"`
+	Age        int
+	Birthday   time.Time
+	CreditCard CreditCard
+}
+
+type CreditCard struct {
+	ID     uint
+	Number string
+	UserId uint
 }
 
 // Create 用数据的指针创建记录
@@ -84,6 +91,7 @@ func BatchCreate(db *gorm.DB) {
 	}
 }
 
+// CreateInBatches 批量创建
 func CreateInBatches(db *gorm.DB, num int) {
 	users := []User{
 		{Name: "user14", Birthday: time.Now()},
@@ -122,6 +130,7 @@ func SkipHooks(db *gorm.DB) {
 	fmt.Println("count:", result.RowsAffected)
 }
 
+// MapCreate 根据Map创建
 func MapCreate(db *gorm.DB) {
 	users := []map[string]interface{}{
 		{"Name": "小坂菜绪", "Age": 19},
@@ -132,6 +141,28 @@ func MapCreate(db *gorm.DB) {
 
 	fmt.Println("error:", result.Error)
 	fmt.Println("count:", result.RowsAffected)
+}
+
+// RelationCreate 关联创建，会同时创建两张表数据
+func RelationCreate(db *gorm.DB) {
+	user := User{
+		Name:     "松田好花",
+		Age:      20,
+		Birthday: time.Now(),
+		CreditCard: CreditCard{
+			Number: "10000018612",
+		},
+	}
+	db.Create(&user)
+}
+
+// DefaultCreate 根据default标签默认值创建
+func DefaultCreate(db *gorm.DB) {
+	user := User{
+		Age:      22,
+		Birthday: time.Now(),
+	}
+	db.Create(&user)
 }
 
 func main() {
@@ -148,5 +179,7 @@ func main() {
 	//BatchCreate(db)
 	//CreateInBatches(db, 3)
 	//SkipHooks(db)
-	MapCreate(db)
+	//MapCreate(db)
+	//RelationCreate(db)
+	DefaultCreate(db)
 }
