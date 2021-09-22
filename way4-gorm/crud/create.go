@@ -7,21 +7,6 @@ import (
 	"time"
 )
 
-//type User struct {
-//	gorm.Model
-//
-//	Name       string `gorm:"default:guest"`
-//	Age        int
-//	Birthday   time.Time
-//	CreditCard CreditCard
-//}
-//
-//type CreditCard struct {
-//	ID     uint
-//	Number string
-//	UserId uint
-//}
-
 // Create 用数据的指针创建记录
 func Create(db *gorm.DB) {
 	user := User{

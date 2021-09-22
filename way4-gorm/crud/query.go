@@ -6,25 +6,7 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
-	"time"
 )
-
-type User struct {
-	gorm.Model
-
-	Name       string `gorm:"default:guest"`
-	Age        int
-	Birthday   time.Time
-	CompanyId  uint
-	CreditCard CreditCard
-}
-
-type CreditCard struct {
-	ID       uint
-	Number   string
-	UserId   uint
-	Username string
-}
 
 // QueryOne 检索单个对象
 func QueryOne(db *gorm.DB) {

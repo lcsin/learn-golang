@@ -128,47 +128,6 @@ func ReplaceRelation(db *gorm.DB) {
 	db.Model(&b).Association("Cat").Replace(&c1, &c2)
 }
 
-// PreloadRelationQuery 预加载查询
-func PreloadRelationQuery(db *gorm.DB) {
-	var cls Class
-	db.Preload("Student").Find(&cls)
-
-	for _, student := range cls.Student {
-		fmt.Println("1.id:", student.ID, "name:", student.Name)
-	}
-
-	var d []Dog
-	db.Preload("Girl").Find(&d)
-	for _, dog := range d {
-		fmt.Println("2.dog name:", dog.Name, "girl name:", dog.Girl.Name)
-	}
-
-	var b []Boy
-	db.Preload("Cat").Find(&b)
-	for _, boy := range b {
-		fmt.Println("3.boy name:", boy.Name, "cat name:", boy.Cat.Name)
-	}
-}
-
-// OptionPreloadQuery 带条件的预加载
-func OptionPreloadQuery(db *gorm.DB) {
-	var class Class
-
-	// 内联条件
-	db.Preload("Student", "name <> ?", "赵四").Find(&class)
-	for _, student := range class.Student {
-		fmt.Println("student name:", student.Name)
-	}
-
-	// 自定义预加载
-	db.Preload("Student", func(db *gorm.DB) *gorm.DB {
-		return db.Where("name Like ?", "%四%")
-	}).Find(&class)
-	for _, student := range class.Student {
-		fmt.Println("student name:", student.Name)
-	}
-}
-
 func main() {
 	// 连接 MySQL 数据库
 	dsn := "root:123456@tcp(127.0.0.1:3306)/learn_db?charset=utf8mb4&parseTime=True&loc=Local"
@@ -182,6 +141,6 @@ func main() {
 	//FindRelation(db)
 	//AppendRelation(db)
 	//ReplaceRelation(db)
-	//PreloadRelationQuery(db)
-	OptionPreloadQuery(db)
+	PreloadRelationQuery(db)
+	//OptionPreloadQuery(db)
 }
